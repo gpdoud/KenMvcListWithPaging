@@ -1,8 +1,17 @@
-﻿@{
+﻿@model IEnumerable<KenMvcListWithPaging.Models.Log> Logs
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table class="table table-sm">
+    <tr>
+        <th>Id</th>
+        <th>Data</th>
+    </tr>
+    @foreach(var log in Model) {
+        <tr>
+            <td>@log.Id</td>
+            <td>@log.Data</td>
+        </tr>
+     }
+</table>
