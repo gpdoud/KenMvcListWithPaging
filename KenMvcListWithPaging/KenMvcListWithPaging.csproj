@@ -3,8 +3,20 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <Configurations>Debug;Release;DebugMac</Configurations>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugMac|AnyCPU' ">
+    <IntermediateOutputPath>obj\Debug\netcoreapp3.1</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\DebugMac\netcoreapp3.1</OutputPath>
+    <DefineConstants>MAC;TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1701;1702</NoWarn>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.18" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
